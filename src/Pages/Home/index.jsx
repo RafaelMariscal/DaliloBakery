@@ -1,10 +1,16 @@
+import ChartMenu from "../../Components/ChartMenu"
+import Header from "../../Components/Header"
+import Menu from "../../Components/Menu"
+import styles from "./styles.module.scss"
 
-
-import './styles.css'
-export function App() {
+export function Home() {
   return (
-    <div>
-      <h1>Dalilo Bakery Loading ...</h1>
+    <div className={styles.container}>
+      <div>
+        <Menu />
+        <Header />
+      </div>
+      <ChartMenu />
     </div>
   )
 }

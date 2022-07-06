@@ -1,0 +1,11 @@
+.container {
+  max-width: 2000px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+
+  >div {
+    display: flex;
+    flex: 1;
+  }
+}
