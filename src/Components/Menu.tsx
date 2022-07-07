@@ -1,6 +1,7 @@
 import { GrInstagram } from "react-icons/gr"
+import { useState, } from 'react'
+
 import styles from "./Menu.module.scss"
-import { useState } from 'react'
 
 export default function Menu() {
 
@@ -15,7 +16,7 @@ export default function Menu() {
 
   const [menuActive, setMenuActive] = useState('Home')
 
-  function handleMenu(event) {
+  function handleMenu(event: any) {
     const dataToCheck = String(event.target.innerHTML).replace('<br>', ' ')
     if (dataToCheck !== menuActive) {
       setMenuActive(dataToCheck)

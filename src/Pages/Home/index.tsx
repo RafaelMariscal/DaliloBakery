@@ -1,7 +1,8 @@
 import ChartMenu from "../../Components/ChartMenu"
 import Header from "../../Components/Header"
 import Menu from "../../Components/Menu"
-import styles from "./styles.module.scss"
+
+import styles from "./Home.module.scss"
 
 export function Home() {
   return (

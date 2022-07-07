@@ -5,7 +5,7 @@ import styles from "./ChartMenu.module.scss"
 import { useState } from "react";
 import { useDetectClickOutside } from 'react-detect-click-outside';
 
-export default function ChartMenu({ props }) {
+export default function ChartMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const closeDropdown = () => {
