@@ -24,11 +24,11 @@ export default function Header() {
 
       <div className={styles.headerBottom}>
         <div>
-          <p>A melhor Boutique de <strong>Pães Artesanais</strong> que a internet já viu!</p>
+          <p>A melhor Boutique de <strong>Pães Artesanais</strong> do Brasil!</p>
           <p>Siga o forninho Dalilo no instagram! <a>@forninhodalilo</a></p>
         </div>
 
-        <div className={styles.researchBox}>
+        <label className={styles.searchBox}>
           <HiSearch size={25} />
           <input
             placeholder="Busca pelo cardápio..."
@@ -36,7 +36,7 @@ export default function Header() {
             name="research"
             id="research"
           />
-        </div>
+        </label>
 
       </div>
 

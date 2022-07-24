@@ -1,11 +1,50 @@
 .container {
   max-width: 2000px;
+  max-height: 100vh;
+  overflow: hidden;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
 
-  >div {
-    display: flex;
+  .content {
     flex: 1;
+    overflow-y: scroll;
+    padding: 0 7.5rem 0 3rem;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      line-height: 1.5rem;
+      display: flex;
+      gap: .5rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .products {
+      padding: 1.5rem 1rem 0 0;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--brown-400);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--brown-500);
+    border-radius: 4px;
+
+    &:hover {
+      background: var(--yellowish);
+    }
   }
 }

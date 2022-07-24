@@ -1,9 +1,13 @@
 .menuContainer {
+  position: fixed;
+  right: 5px;
+  z-index: 4;
+
   >div {
     height: 100vh;
     width: 5rem;
     background-color: var(--brown-300);
-    color: var(--background);
+    color: var(--white);
     padding-top: 2rem;
 
     display: flex;
@@ -37,7 +41,6 @@
         margin: 0 auto;
       }
     }
-
   }
 }
 

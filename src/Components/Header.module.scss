@@ -1,5 +1,4 @@
 .container {
-  padding: 0 3rem;
   flex: 1;
 
   .headerTop {
@@ -31,13 +30,16 @@
       font-size: 1rem;
 
       a {
+        font-weight: bold;
+
         &:hover {
           text-decoration: underline;
         }
       }
     }
 
-    .researchBox {
+    .searchBox {
+
       position: relative;
 
       input {
