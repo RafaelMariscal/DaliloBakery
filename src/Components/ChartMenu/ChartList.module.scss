@@ -1,0 +1,74 @@
+.container {
+  height: 100%;
+  display: flex !important;
+  flex-direction: column;
+
+
+  .labels {
+    align-items: flex-start;
+    width: 100%;
+    border-collapse: collapse;
+    margin-left: 1.5rem;
+
+    th {
+      line-height: 2rem;
+      text-align: left;
+      font-weight: normal;
+
+      &:first-child {
+        width: 242px;
+      }
+    }
+  }
+
+  .chartProducts {
+    flex: 1;
+    background-color: var(--background);
+    color: var(--brown-300);
+  }
+
+  .footer {
+    text-align: center;
+    justify-self: flex-end;
+
+    >table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th {
+        line-height: 2rem;
+        text-align: left;
+        font-weight: normal;
+        padding: 0 1.5rem;
+
+
+        &:first-child {
+          width: 242px;
+        }
+
+        &:last-child {
+          text-align: end;
+        }
+      }
+    }
+
+    a {
+      line-height: 1rem;
+      height: 50px;
+      margin: 1rem 1.5rem 0;
+      border-radius: 8px;
+      background-color: var(--background);
+      color: var(--brown-300);
+      font-weight: bold;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 100ms;
+
+      &:hover {
+        background-color: var(--yellowish);
+      }
+    }
+  }
+}
