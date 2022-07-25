@@ -1,10 +1,17 @@
 import styles from "./ProductCard.module.scss"
 import { AiFillShopping, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 
-function ProductCard() {
+interface ProductCardProps {
+  imgSrc: string
+  // ProductName: string
+  // ProductPrice: number
+  // ProductDescription: string
+}
+
+function ProductCard({ imgSrc }: ProductCardProps) {
   return (
     <div className={styles.card}>
-      <img src="https://images.unsplash.com/photo-1589367920969-ab8e050bbb04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=100" alt="" />
+      <img src={imgSrc} alt="" />
 
       <div className={styles.cardBackground}>
         <h3>Pãozinho Dalilo calabresa caramelizada</h3>

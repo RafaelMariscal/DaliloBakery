@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <header className={styles.container}>
       <div className={styles.headerTop}>
-        <h1>Bem vindo à Dalio!</h1>
+        <h1>Bem vindo à Dalilo!</h1>
         <div>
           <span>Data de acesso: </span>
           <time>
@@ -25,7 +25,7 @@ export default function Header() {
       <div className={styles.headerBottom}>
         <div>
           <p>A melhor Boutique de <strong>Pães Artesanais</strong> do Brasil!</p>
-          <p>Siga o forninho Dalilo no instagram! <a>@forninhodalilo</a></p>
+          <p>Siga o Forninho Dalilo no instagram! <a>@forninhodalilo</a></p>
         </div>
 
         <label className={styles.searchBox}>
