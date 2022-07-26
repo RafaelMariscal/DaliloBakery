@@ -1,4 +1,5 @@
 import styles from "./ChartList.module.scss"
+import ProductInChart from "./ProductInChart"
 
 interface ChartListProps {
   isSidebarOpen: boolean
@@ -16,7 +17,12 @@ function ChartList({ isSidebarOpen }: ChartListProps) {
       </table>
 
       <div className={styles.chartProducts}>
-        <h1>Isso é um teste</h1>
+
+        <ProductInChart />
+        <ProductInChart />
+        <ProductInChart />
+        <ProductInChart />
+
       </div>
 
       <div className={styles.footer}>

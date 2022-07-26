@@ -20,24 +20,31 @@ export function Home() {
 
   return (
     <div className={styles.container}>
+
       <Menu />
+
       <div className={styles.content}>
         <Header />
+
         <h2>
           <GiSlicedBread size={24} />
           Nossos Produtos:
         </h2>
+
         <div>
           <div className={styles.products}>
             {array.map(imgSrc =>
               <ProductCard imgSrc={imgSrc} />
             )}
           </div>
+
           <div className={styles.illustration}>
             <img src="./assets/FreelancerCatAndPlant.svg" alt="" />
           </div>
         </div>
+
       </div>
+
       <ChartMenu />
     </div>
   )

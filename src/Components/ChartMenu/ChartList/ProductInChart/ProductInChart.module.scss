@@ -1,0 +1,106 @@
+.container {
+  background-color: var(--brown-400);
+  color: var(--white);
+  margin: .625rem;
+  border-radius: 1rem;
+
+  .productDescription {
+    padding: 1rem .625rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: .625rem;
+
+    >div {
+      width: 220px;
+      display: flex;
+      gap: .625rem;
+
+
+      img {
+        display: block;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 8px;
+        outline: 1px solid var(--brown-300);
+        box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.15);
+        transition: all 150ms;
+      }
+
+      .description {
+        width: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+          font-size: .75rem;
+        }
+
+        span {
+          font-size: .875rem;
+        }
+      }
+    }
+
+    .productAmout {
+      background-color: var(--background);
+      color: var(--brown-300);
+      width: 4rem;
+      height: 3.25rem;
+      padding: 0 .25rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: .25rem;
+      box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.15);
+
+      .icon {
+        height: 100%;
+        cursor: pointer;
+
+        &:hover {
+          color: var(--yellowish);
+        }
+      }
+
+      span {
+        text-align: center;
+        width: 1.25rem;
+      }
+    }
+
+    .total {
+      background-color: var(--background);
+      color: var(--brown-300);
+      height: 3.25rem;
+      border-radius: 8px;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &:hover {
+    .productDescription {
+      >div {
+        img {
+          transform: scale(1.1);
+        }
+      }
+
+      .productAmout {
+        outline: 1px solid var(--yellowish);
+        outline-offset: 2px;
+      }
+
+      .total {
+        outline: 1px solid var(--yellowish);
+        outline-offset: 2px;
+      }
+    }
+  }
+}
