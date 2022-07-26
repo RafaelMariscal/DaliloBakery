@@ -10,7 +10,7 @@ function ProductInChart() {
 
           <div className={styles.description}>
             <p>
-              Pãozinho Dalilo Cebola...
+              Pãozinho Dalilo calabresa caramelizada
             </p>
             <div>
               <span>R$ </span> <span>49,90</span>

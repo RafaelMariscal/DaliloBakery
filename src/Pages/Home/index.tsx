@@ -34,7 +34,7 @@ export function Home() {
         <div>
           <div className={styles.products}>
             {array.map(imgSrc =>
-              <ProductCard imgSrc={imgSrc} />
+              <ProductCard imgSrc={imgSrc} key={imgSrc} />
             )}
           </div>
 

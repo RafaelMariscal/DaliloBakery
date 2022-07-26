@@ -28,13 +28,16 @@
       }
 
       .description {
-        width: 200px;
+        width: 150px;
         display: flex;
         flex-direction: column;
         justify-content: center;
 
         p {
           font-size: .75rem;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         span {

@@ -1,5 +1,6 @@
 import styles from "./ProductCard.module.scss"
 import { AiFillShopping, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+import { useState } from "react"
 
 interface ProductCardProps {
   imgSrc: string
@@ -9,6 +10,22 @@ interface ProductCardProps {
 }
 
 function ProductCard({ imgSrc }: ProductCardProps) {
+
+  const [amount, setAmount] = useState(0)
+
+  function handleProductAmount(type: number) {
+    switch (type) {
+      case -1:
+        return amount > 0 && setAmount(state => state - 1)
+
+      case 1:
+        return setAmount(state => state + 1)
+
+      default:
+        return amount;
+    }
+  }
+
   return (
     <div className={styles.card}>
       <img src={imgSrc} alt="" />
@@ -19,9 +36,13 @@ function ProductCard({ imgSrc }: ProductCardProps) {
         <div>
           <span>R$ 49,90</span>
           <div className={styles.actions}>
-            <AiOutlineMinus size={16} className={styles.icons} />
-            <strong>0</strong>
-            <AiOutlinePlus size={16} className={styles.icons} />
+            <button type="button" className={styles.icons}>
+              <AiOutlineMinus size={16} onClick={() => handleProductAmount(-1)} />
+            </button>
+            <strong>{amount}</strong>
+            <button type="button" className={styles.icons}>
+              <AiOutlinePlus size={16} onClick={() => handleProductAmount(1)} />
+            </button>
           </div>
           <button className={styles.chart}>
             <AiFillShopping size={16} />

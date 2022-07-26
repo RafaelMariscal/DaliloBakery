@@ -1,5 +1,5 @@
 import { GrInstagram } from "react-icons/gr"
-import { useState, } from 'react'
+import { useState } from 'react'
 
 import styles from "./Menu.module.scss"
 

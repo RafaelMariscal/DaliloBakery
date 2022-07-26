@@ -74,6 +74,8 @@
 
       .actions {
         background-color: var(--background);
+        width: 5rem;
+        justify-content: center;
         color: var(--brown-300);
         height: 100%;
         padding: 0 .5rem;
@@ -85,6 +87,10 @@
 
         .icons {
           cursor: pointer;
+          border: none;
+          background-color: transparent;
+          display: flex;
+          outline: none;
 
           &:hover {
             color: var(--yellowish);
