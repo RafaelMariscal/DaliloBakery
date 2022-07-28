@@ -1,11 +1,11 @@
-import styles from "./ChartList.module.scss"
-import ProductInChart from "./ProductInChart"
+import styles from "./CartList.module.scss"
+import ProductInCart from "./ProductInCart"
 
 interface ChartListProps {
   isSidebarOpen: boolean
 }
 
-function ChartList({ isSidebarOpen }: ChartListProps) {
+function CartList({ isSidebarOpen }: ChartListProps) {
   return (
     <div className={`${isSidebarOpen ? styles.container : ''}`}>
       <table className={styles.labels}>
@@ -20,10 +20,10 @@ function ChartList({ isSidebarOpen }: ChartListProps) {
 
       <div className={styles.chartProducts}>
 
-        <ProductInChart key={Math.random()} />
-        <ProductInChart key={Math.random()} />
-        <ProductInChart key={Math.random()} />
-        <ProductInChart key={Math.random()} />
+        <ProductInCart key={Math.random()} />
+        <ProductInCart key={Math.random()} />
+        <ProductInCart key={Math.random()} />
+        <ProductInCart key={Math.random()} />
 
       </div>
 
@@ -56,4 +56,4 @@ function ChartList({ isSidebarOpen }: ChartListProps) {
   )
 }
 
-export default ChartList
+export default CartList

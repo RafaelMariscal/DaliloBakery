@@ -1,5 +1,5 @@
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import styles from "./ProductInChart.module.scss";
+import styles from "./ProductInCart.module.scss";
 
 function ProductInChart() {
   return (

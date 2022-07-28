@@ -1,6 +1,6 @@
 import { BakeryProducts, BakeryProductType, Category } from "../../../src/Assets/bakery";
 
-import ChartMenu from "../../Components/ChartMenu"
+import CartMenu from "../../Components/CartMenu"
 import Header from "../../Components/Header"
 import Menu from "../../Components/Menu"
 import ProductCard from "../../Components/ProductCard"
@@ -56,7 +56,7 @@ export function Home() {
 
       </div>
 
-      <ChartMenu />
+      <CartMenu />
     </div>
   )
 }

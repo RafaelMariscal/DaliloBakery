@@ -1,12 +1,11 @@
 import { AiOutlineShoppingCart, AiOutlineDoubleLeft, AiOutlineDoubleRight } from 'react-icons/ai'
-import styles from "./ChartMenu.module.scss"
-
+import styles from "./CartMenu.module.scss"
 
 import { useState } from "react";
 import { useDetectClickOutside } from 'react-detect-click-outside';
-import ChartList from './ChartList';
+import CartList from './CartList';
 
-export default function ChartMenu() {
+export default function CartMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
   const closeDropdown = () => {
@@ -32,7 +31,7 @@ export default function ChartMenu() {
           <span >to go</span>
         </div>
 
-        <ChartList isSidebarOpen={isSidebarOpen} />
+        <CartList isSidebarOpen={isSidebarOpen} />
       </div>
     </aside>
   )
