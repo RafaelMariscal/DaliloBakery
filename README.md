@@ -5,27 +5,37 @@
 
     [x] Design with Figma 
     
-    [ Loading... ] Build Frontend with React + Sass
-    
-    [ ] Create Routes schema ( Checkout [ ] | Confirmation [ ] )
+    [ ] Build Frontend with React + Sass
+        
+        [X] Home page frontend
+        [ ] Checkout page frontend
+        [ ] Order Confirmation page frontend
+        
+    [X] Create Routes schema ( Checkout [X] | Confirmation [ ] )
       
     [ ] Implement to the app all main functionalities
     
-    [ ] Main Dashboard
+        [ ] Main Dashboard
+        
+            [X] Product filter Menu    
+            [ ] Shopping Cart Context
+            [ ] Backend Connection
+            [ ] Product finder
+
+        [ ] Checkout Page
     
-        [ ] Backend Connection
-        [ ] Shopping Cart Context
-        [ ] Product finder
-        [ ] Product filter Menu
-      
-    [ ] Checkout Page
-    
-        [ ] Shopping cart review 
-        [ ] Redirect to stirpe payment API page
-        [ ] The client needs to recieve an order confirmation 
-    
+            [ ] Shopping cart review 
+            [ ] Redirect to stirpe payment API page
+            [ ] Redirect to Order Confirmation Page
+
     [ ] Implement a responsive design
 
-<h3>Here some GIFs of how this project is going...</h3>
+<h3>Here some Screenshots and GIFs of how this project is going...</h3>
 
-<img src="https://media.giphy.com/media/3tSfRdSMNn7o6PncWV/giphy.gif" />
+<img src="./Public/Assets/screenshot1.jpg" width="99%" />
+
+<p> 
+    <img src="./Public/Assets/screenshot2.jpg" width="49%"/>
+    <img src="https://media.giphy.com/media/3tSfRdSMNn7o6PncWV/giphy.gif" width="49%" />
+</p>
+
