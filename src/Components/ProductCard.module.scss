@@ -4,6 +4,19 @@
   height: 400px;
   border-radius: 0 0 8px 30px;
   text-align: center;
+  animation: name duration timing-function delay iteration-count direction fill-mode;
+  animation: apear 250ms;
+
+  @keyframes apear {
+    0% {
+      transform: translateY(1rem);
+    }
+
+    100% {
+      transform: translateY(0rem);
+    }
+  }
+
 
   img {
     width: 200px;
@@ -72,6 +85,7 @@
       justify-content: space-between;
       gap: .5rem;
 
+
       .actions {
         background-color: var(--background);
         width: 5rem;
@@ -124,6 +138,14 @@
       font-size: .75rem;
       line-height: 1.15rem;
       padding: .5rem 1.25rem;
+      height: 5rem;
+      margin-bottom: .5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      /* number of lines to show */
+      -webkit-box-orient: vertical;
     }
 
     .cardFooter {

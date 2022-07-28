@@ -2,24 +2,56 @@ import { GrInstagram } from "react-icons/gr"
 import { useState } from 'react'
 
 import styles from "./Menu.module.scss"
+import { Category } from "../../src/Assets/bakery"
 
-export default function Menu() {
+interface MenuType {
+  menu: string
+  category: Category[]
+}
 
-  const menuList = [
-    "Home",
-    "Pães Salgados",
-    "Pães Doces",
-    "Dalilinhos Delícia",
-    "Dalilo Vengano",
-    "Dalilo Lacfree"
-  ]
+interface MenuProps {
+  categoryFilter: (categories: Category[]) => void
+}
 
+export default function Menu({ categoryFilter }: MenuProps) {
   const [menuActive, setMenuActive] = useState('Home')
 
+  const menuList: MenuType[] = [
+    {
+      menu: "Home",
+      category: ["all"]
+    },
+    {
+      menu: "Pães Salgados",
+      category: ["salty"]
+    },
+    {
+      menu: "Pães Doces",
+      category: ["sweet"]
+    },
+    {
+      menu: "Dalilinhos Delícia",
+      category: ["tiny"]
+    },
+    {
+      menu: "Dalilo Vengano",
+      category: ["vegan"]
+    },
+    {
+      menu: "Dalilo Lacfree",
+      category: ["lacfree"]
+    },
+  ]
+
   function handleMenu(event: any) {
-    const dataToCheck = String(event.target.innerHTML).replace('<br>', ' ')
-    if (dataToCheck !== menuActive) {
-      setMenuActive(dataToCheck)
+    const menuNameSelected = String(event.target.innerHTML).replace('<br>', ' ')
+    if (menuNameSelected !== menuActive) {
+      setMenuActive(menuNameSelected)
+    }
+    const menuSelected = menuList.find(menu => menu.menu == menuNameSelected)
+    console.log(menuSelected?.category)
+    if (menuSelected) {
+      return categoryFilter(menuSelected?.category)
     }
     return
   }
@@ -30,13 +62,14 @@ export default function Menu() {
       <nav>
         <ul>
           {menuList.map(item => {
-            const test = item === menuActive
-            const itemToCheck = item.split(' ')
+            const isMenuActive = item.menu === menuActive
+
+            const itemToCheck = item.menu.split(' ')
             if (itemToCheck.length > 1) {
               return (
                 <li
                   key={itemToCheck[0] + itemToCheck[1]}
-                  className={test ? styles.active : ''}
+                  className={isMenuActive ? styles.active : ''}
                 >
                   <a onClick={handleMenu} tabIndex={1}>
                     {itemToCheck[0]}<br />{itemToCheck[1]}
@@ -47,7 +80,7 @@ export default function Menu() {
               return (
                 <li
                   key={itemToCheck[0]}
-                  className={test ? styles.active : ''}
+                  className={isMenuActive ? styles.active : ''}
                 >
                   <a onClick={handleMenu} tabIndex={1}>
                     {itemToCheck[0]}

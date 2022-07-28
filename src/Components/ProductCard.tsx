@@ -1,15 +1,11 @@
 import styles from "./ProductCard.module.scss"
 import { AiFillShopping, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import { useState } from "react"
+import { BakeryProductType } from "../../src/Assets/bakery"
 
-interface ProductCardProps {
-  imgSrc: string
-  // ProductName: string
-  // ProductPrice: number
-  // ProductDescription: string
-}
-
-function ProductCard({ imgSrc }: ProductCardProps) {
+function ProductCard({
+  id, image, name, description, price, categories, productListOrder }: BakeryProductType
+) {
 
   const [amount, setAmount] = useState(0)
 
@@ -26,15 +22,41 @@ function ProductCard({ imgSrc }: ProductCardProps) {
     }
   }
 
+  let cardFooterMassage = <></>
+  function printCardFooterMessage() {
+    cardFooterMassage = <>
+      <span>**</span><strong>Contém Carne e/ou Lactose</strong><span>**</span>
+    </>
+
+    if (categories.includes("vegan")) {
+      cardFooterMassage = <>
+        <span>**</span><strong>Produto Vagano</strong><span>**</span>
+      </>
+    }
+    if (categories.includes("lacfree")) {
+      cardFooterMassage = <>
+        <span>**</span><strong>Produto Lacfree</strong><span>**</span>
+      </>
+    }
+    if (categories.includes("vegan" && "lacfree")) {
+      cardFooterMassage = <>
+        <span>**</span><strong>Produto Vagano e Lacfree</strong><span>**</span>
+      </>
+    }
+  }
+  printCardFooterMessage()
+
+  console.log(productListOrder)
+
   return (
-    <div className={styles.card}>
-      <img src={imgSrc} alt="" />
+    <div className={`${styles.card} ${'--item' + productListOrder}`} key={id}>
+      <img src={image} alt="" />
 
       <div className={styles.cardBackground}>
-        <h3>Pãozinho Dalilo calabresa caramelizada</h3>
+        <h3>{name}</h3>
 
         <div>
-          <span>R$ 49,90</span>
+          <span>R$ {price}</span>
           <div className={styles.actions}>
             <button type="button" className={styles.icons}>
               <AiOutlineMinus size={16} onClick={() => handleProductAmount(-1)} />
@@ -50,11 +72,11 @@ function ProductCard({ imgSrc }: ProductCardProps) {
         </div>
 
         <p>
-          Pãozinho Dalilo recheado com calabreza, cebola caramelizada, queijo mussarela e catupiry.
+          {description}
         </p>
 
         <div className={styles.cardFooter}>
-          <span>**</span><strong>contém Gluten e Lactose</strong><span>**</span>
+          {cardFooterMassage}
         </div>
       </div>
     </div>
