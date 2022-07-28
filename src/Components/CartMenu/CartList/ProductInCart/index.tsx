@@ -53,11 +53,11 @@ function ProductInCart({ productId, quantity, totalPrice, unityPrice }: ICartIte
         </div>
 
         <div className={styles.total}>
-          <span>{
-            totalPrice.toLocaleString('pt-BR',
+          <span>
+            {totalPrice.toLocaleString('pt-BR',
               { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }
-            )
-          }</span>
+            )}
+          </span>
         </div>
 
         <div className={styles.removeProduct} onClick={handleRemoveFromCart}>

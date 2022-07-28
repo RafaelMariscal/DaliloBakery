@@ -66,7 +66,11 @@ function ProductCard({ product, productListOrder }: ProductCardProps) {
         <h3>{product.name}</h3>
 
         <div>
-          <span>R$ {product.price}</span>
+          <span>
+            {product.price.toLocaleString('pt-BR',
+              { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }
+            )}
+          </span>
           <div className={styles.actions}>
             <button type="button" className={styles.icons}>
               <AiOutlineMinus size={16} onClick={handleDecreaseQuantity} />

@@ -3,9 +3,11 @@ import styles from "./CartMenu.module.scss"
 
 import { useEffect, useRef, useState } from "react";
 import CartList from './CartList';
+import { useCart } from '../../hooks/useCart';
 
 export default function CartMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const { cart } = useCart()
   const refOne = useRef<any>(null)
   useEffect(() => {
     const handleCloseCart = (event: Event) => {
@@ -21,9 +23,12 @@ export default function CartMenu() {
 
   return (
     <aside className={`${styles.menuContainer} ${isSidebarOpen ? styles.cartMenuOpen : ''} `} ref={refOne} >
-      <div >
+      <div onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
         <div className={styles.header}>
-          <a className={styles.cart} onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+          <a
+            className={styles.cart}
+            title={isSidebarOpen ? undefined : cart.length ? String(cart.length) : undefined}
+          >
             <AiOutlineDoubleLeft size={15} className={styles.arrowLeft} />
             <AiOutlineShoppingCart size={25} className={styles.shopCart} />
             <AiOutlineDoubleRight size={15} className={styles.arrowRight} />

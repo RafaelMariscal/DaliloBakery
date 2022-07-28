@@ -43,7 +43,7 @@ To actualy run this project, use de development tool by running the following te
     
     $ yarn dev
 
-The project will be hosted at localhost:3000.
+The project will be hosted at ``localhost:3000``
 
 <h2 id="Contributing">Contributing</h2>
 
