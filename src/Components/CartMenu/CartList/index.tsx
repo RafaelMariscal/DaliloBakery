@@ -1,11 +1,23 @@
+import { useCart } from "../../../hooks/useCart"
 import styles from "./CartList.module.scss"
 import ProductInCart from "./ProductInCart"
 
-interface ChartListProps {
+interface CartListProps {
   isSidebarOpen: boolean
 }
 
-function CartList({ isSidebarOpen }: ChartListProps) {
+function CartList({ isSidebarOpen }: CartListProps) {
+  const { cart, subTotal, totalOrder, resetCart } = useCart()
+  const totalFees = totalOrder - subTotal
+
+  function handleResetCart() {
+    if (cart.length) {
+      if (confirm("Você quer remover todos os produtos do carrinho?")) {
+        resetCart()
+      }
+    }
+  }
+
   return (
     <div className={`${isSidebarOpen ? styles.container : ''}`}>
       <table className={styles.labels}>
@@ -18,12 +30,18 @@ function CartList({ isSidebarOpen }: ChartListProps) {
         </thead>
       </table>
 
-      <div className={styles.chartProducts}>
+      <div className={styles.cartProducts}>
 
-        <ProductInCart key={Math.random()} />
-        <ProductInCart key={Math.random()} />
-        <ProductInCart key={Math.random()} />
-        <ProductInCart key={Math.random()} />
+        {
+          cart.length ? (
+            cart.map(product => <ProductInCart key={product.id} {...product} />)
+          ) : (
+            <div className={styles.emptyCart}>
+              <h3>😔 Sem itens no carrinho...</h3>
+              <img src="./Public/Assets/EmptyPlace.svg" alt="" />
+            </div>
+          )
+        }
 
       </div>
 
@@ -31,26 +49,41 @@ function CartList({ isSidebarOpen }: ChartListProps) {
         <table className={styles.acount}>
           <tbody>
             <tr>
-              <th>Total Fees</th>
+              <th>Subtotal</th>
               <th>R$</th>
-              <th>00,00</th>
+              <th>
+                {subTotal.toLocaleString('pt-BR',
+                  { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+                )}
+              </th>
             </tr>
 
             <tr>
-              <th>Discounts</th>
+              <th>Taxas previstas</th>
               <th>R$</th>
-              <th>00,00</th>
+              <th>
+                {totalFees.toLocaleString('pt-BR',
+                  { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+                )}
+              </th>
             </tr>
 
             <tr>
-              <th>Total</th>
+              <th>Total do pedido</th>
               <th>R$</th>
-              <th>00,00</th>
+              <th>
+                {totalOrder.toLocaleString('pt-BR',
+                  { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+                )}
+              </th>
             </tr>
           </tbody>
         </table>
 
-        <a href="">Continuar para pagamento</a>
+        <div className={styles.cartListActions}>
+          <button type="button" onClick={handleResetCart}>reset</button>
+          <button type="button">Continuar para pagamento</button>
+        </div>
       </div>
     </div>
   )

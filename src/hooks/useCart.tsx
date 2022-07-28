@@ -12,13 +12,14 @@ export type ICartItem = {
 type ContextData = {
   cart: ICartItem[]
   subTotal: number
+  totalFees: number
   totalOrder: number
 
   resetCart: () => void
   addItemToCart: (id: string) => void
   removeItemFromCart: (id: string) => void
-  increaseCoffeeQuantityByOne: (id: string) => void
-  decreaseCoffeeQuantityByOne: (id: string) => void
+  increaseProductQuantityByOne: (id: string) => void
+  decreaseProductQuantityByOne: (id: string) => void
 }
 
 export type ProviderProps = {
@@ -27,7 +28,9 @@ export type ProviderProps = {
 
 const CartContext = createContext({} as ContextData)
 
-export const FEES = 3.95
+const PRODUCT_MAX_QUANTITY = 5
+
+export const FEES = 6.95
 
 export function CartProvider({ children }: ProviderProps) {
   const [cart, setCart] = useState<ICartItem[]>([])
@@ -37,10 +40,10 @@ export function CartProvider({ children }: ProviderProps) {
     return product
   }
 
-  function increaseCoffeeQuantityByOne(id: string) {
+  function increaseProductQuantityByOne(id: string) {
     const updatedCart = cart.map((product) => {
       if (product.productId === id) {
-        if (product.quantity === 5) {
+        if (product.quantity === PRODUCT_MAX_QUANTITY) {
           return product
         }
 
@@ -52,7 +55,6 @@ export function CartProvider({ children }: ProviderProps) {
           totalPrice,
         }
       }
-
       return product
     })
 
@@ -62,7 +64,7 @@ export function CartProvider({ children }: ProviderProps) {
   function addItemToCart(id: string) {
     const product = checkHasProductInCart(id)
     if (product) {
-      return increaseCoffeeQuantityByOne(id)
+      return increaseProductQuantityByOne(id)
     }
 
     const productPrice = BakeryProducts.find((product) => product.id === id)?.price
@@ -70,7 +72,7 @@ export function CartProvider({ children }: ProviderProps) {
     setCart((prev) => [
       ...prev,
       {
-        id: `item-${id}-${Date.now()}`,
+        id: `item-${id}`,
         quantity: 1,
         productId: id,
         unityPrice: productPrice ?? 0,
@@ -80,12 +82,11 @@ export function CartProvider({ children }: ProviderProps) {
   }
 
   function removeItemFromCart(id: string) {
-    const updatedCart = cart.filter((item) => item.id !== id)
-
+    const updatedCart = cart.filter((item) => (item.productId !== id))
     setCart(updatedCart)
   }
 
-  function decreaseCoffeeQuantityByOne(id: string) {
+  function decreaseProductQuantityByOne(id: string) {
     const updatedCart = cart.map((product) => {
       if (product.productId === id) {
         if (product.quantity === 1) {
@@ -121,19 +122,22 @@ export function CartProvider({ children }: ProviderProps) {
     return value
   }, [cart])
 
-  const totalOrder = subTotal + FEES
+  const totalFees = subTotal * (FEES / 100)
+
+  const totalOrder = subTotal + totalFees
 
   return (
     <CartContext.Provider
       value={{
         cart,
         subTotal,
+        totalFees,
         totalOrder,
         resetCart,
         addItemToCart,
         removeItemFromCart,
-        increaseCoffeeQuantityByOne,
-        decreaseCoffeeQuantityByOne,
+        increaseProductQuantityByOne,
+        decreaseProductQuantityByOne,
       }}
     >
       {children}

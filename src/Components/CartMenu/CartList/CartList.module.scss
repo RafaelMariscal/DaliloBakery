@@ -21,11 +21,24 @@
     }
   }
 
-  .chartProducts {
+  .cartProducts {
     flex: 1;
     background-color: var(--background);
     color: var(--brown-300);
     overflow-y: auto;
+
+    .emptyCart {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+
+      img {
+        width: 80%;
+      }
+    }
   }
 
   .footer {
@@ -54,25 +67,38 @@
       }
     }
 
-    a {
-      line-height: 1rem;
-      height: 50px;
-      margin: 1rem 1.5rem 2rem;
-      border-radius: 8px;
-      background-color: var(--yellowish);
-      color: var(--brown-300);
-      font-weight: bold;
-
+    .cartListActions {
       display: flex;
-      justify-content: center;
       align-items: center;
-      transition: background 100ms;
+      justify-content: center;
+      padding: 0 1.5rem;
+      gap: 1rem;
 
-      &:hover {
-        background-color: var(--brown-300);
-        color: var(--yellowish);
-        outline: 2px solid var(--yellowish);
-        box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.25);
+      button {
+        line-height: 1rem;
+        height: 50px;
+        padding: 0 1rem;
+        margin: 1rem 0 1.5rem;
+        border: 0;
+        border-radius: 8px;
+        font-weight: bold;
+        background-color: var(--brown-500);
+        color: var(--brown-300);
+        transition: background 100ms;
+
+        &:last-child {
+          flex: 1;
+          background-color: var(--yellowish);
+          color: var(--brown-300);
+        }
+
+        &:hover {
+          font-weight: bold;
+          background-color: var(--brown-300);
+          color: var(--yellowish);
+          outline: 2px solid var(--yellowish);
+          box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.25);
+        }
       }
     }
   }

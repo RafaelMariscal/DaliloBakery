@@ -45,7 +45,7 @@ export function Home() {
         <div>
           <div className={styles.products}>
             {productList.map(product =>
-              <ProductCard {...product} productListOrder={productList.indexOf(product)} key={product.id + Date.now()} />
+              <ProductCard product={product} productListOrder={productList.indexOf(product)} key={product.id} />
             )}
           </div>
 
