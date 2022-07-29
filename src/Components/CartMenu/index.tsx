@@ -7,7 +7,10 @@ import { useCart } from '../../hooks/useCart';
 
 export default function CartMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [orderNumber, setOrderNumber] = useState(0)
+
   const { cart } = useCart()
+
   const refOne = useRef<any>(null)
   useEffect(() => {
     const handleCloseCart = (event: Event) => {
@@ -19,6 +22,9 @@ export default function CartMenu() {
       }
     }
     document.addEventListener("click", handleCloseCart, true)
+
+    setOrderNumber(34560 + Math.floor(Math.random() * 10))
+
   }, [])
 
   return (
@@ -35,7 +41,7 @@ export default function CartMenu() {
             <AiOutlineDoubleRight size={15} className={styles.arrowRight} />
           </a>
 
-          <h3>Order #<span>34561</span></h3>
+          <h3>Order #<span>{orderNumber}</span></h3>
         </div>
 
         <div className={styles.orderType}>
