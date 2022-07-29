@@ -23,9 +23,10 @@ export default function CartMenu() {
 
   return (
     <aside className={`${styles.menuContainer} ${isSidebarOpen ? styles.cartMenuOpen : ''} `} ref={refOne} >
-      <div onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+      <div >
         <div className={styles.header}>
           <a
+            onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             className={styles.cart}
             title={isSidebarOpen ? undefined : cart.length ? String(cart.length) : undefined}
           >
