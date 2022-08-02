@@ -14,18 +14,16 @@ export default function CartMenu() {
   const refOne = useRef<any>(null)
   useEffect(() => {
     const handleCloseCart = (event: Event) => {
-      if (!refOne.current.contains(event.target)) {
+      if (!refOne.current.contains(event.target) && isSidebarOpen) {
         setIsSidebarOpen(false)
-        console.log('click outside')
       } else {
-        console.log('click inside')
+        return
       }
     }
     document.addEventListener("click", handleCloseCart, true)
 
     setOrderNumber(34560 + Math.floor(Math.random() * 10))
-
-  }, [])
+  }, [isSidebarOpen])
 
   return (
     <aside className={`${styles.menuContainer} ${isSidebarOpen ? styles.cartMenuOpen : ''} `} ref={refOne} >

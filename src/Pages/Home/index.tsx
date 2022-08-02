@@ -35,7 +35,7 @@ export function Home() {
       <Menu categoryFilter={handleProductsCategory} />
 
       <div className={styles.content}>
-        <Header />
+        <Header setProductList={setProductList} />
 
         <h2>
           <GiSlicedBread size={24} />
