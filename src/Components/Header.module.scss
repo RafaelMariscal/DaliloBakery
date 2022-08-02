@@ -38,30 +38,28 @@
       }
     }
 
-    form {
-      display: flex;
+    display: flex;
 
-      .searchBox {
+    .searchBox {
 
-        position: relative;
+      position: relative;
 
-        input {
-          font-size: .875rem;
-          width: 18.25rem;
-          height: 3.125rem;
-          text-indent: 2.5rem;
+      input {
+        font-size: .875rem;
+        width: 18.25rem;
+        height: 3.125rem;
+        text-indent: 2.5rem;
 
-          background-color: transparent;
-          border: 1px solid var(--gray-600);
-          border-radius: .625rem;
-          box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
-        }
+        background-color: var(--background);
+        border: 1px solid var(--gray-600);
+        border-radius: .625rem;
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.35);
+      }
 
-        >svg {
-          position: absolute;
-          left: .5rem;
-          top: 25%;
-        }
+      >svg {
+        position: absolute;
+        left: .5rem;
+        top: 25%;
       }
     }
   }

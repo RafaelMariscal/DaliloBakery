@@ -25,7 +25,6 @@ export function Home() {
         }
       })
     })
-    console.log(filteredProductList)
     return setProductList(filteredProductList)
   }
 
@@ -44,9 +43,15 @@ export function Home() {
 
         <div>
           <div className={styles.products}>
-            {productList.map(product =>
-              <ProductCard product={product} productListOrder={productList.indexOf(product)} key={product.id} />
-            )}
+            {
+              productList.length === 0 ? (
+                <h2>😔 Nenhum produto encontrado...</h2>
+              ) : (
+                productList.map(product =>
+                  <ProductCard product={product} productListOrder={productList.indexOf(product)} key={product.id} />
+                )
+              )
+            }
           </div>
 
           <div className={styles.illustration}>

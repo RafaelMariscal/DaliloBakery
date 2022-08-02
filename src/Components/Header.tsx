@@ -1,7 +1,7 @@
 import { format } from "date-fns"
 import { ptBR } from 'date-fns/locale'
-import { FormEvent, useEffect, useState } from "react"
-import { BakeryProducts, BakeryProductType, Category } from "../../src/Assets/bakery";
+import { useEffect, useState } from "react"
+import { BakeryProducts, BakeryProductType } from "../../src/Assets/bakery";
 
 import { HiSearch } from "react-icons/hi"
 import styles from "./Header.module.scss"
@@ -10,38 +10,27 @@ interface HeaderProps {
   setProductList: (array: BakeryProductType[]) => void
 }
 
+function transformToRegularChar(string: string) {
+  return string.normalize('NFD').replace(/([\u0300-\u036f]|[^0-9a-zA-Z])/g, '')
+}
+
 export default function Header({ setProductList }: HeaderProps) {
   const [search, setSearch] = useState("")
   let filteredProducts: BakeryProductType[] = []
-
   useEffect(() => {
     if (!search.trim()) {
-      return
+      return setProductList(BakeryProducts)
     }
     if (!filteredProducts) {
       return setProductList(BakeryProducts)
     }
-    filteredProducts = BakeryProducts.filter(product =>
-      product.name.toLowerCase().includes(search.toLowerCase())
-    )
-
+    filteredProducts = BakeryProducts.filter(product => {
+      const productNameWithRegularChar = transformToRegularChar(product.name.toLowerCase())
+      const searchWithRegularChar = transformToRegularChar(search.toLowerCase())
+      return productNameWithRegularChar.includes(searchWithRegularChar)
+    })
     return setProductList(filteredProducts)
-
   }, [search])
-
-
-  function handleSearchProduct(event: FormEvent, search: string) {
-    event.preventDefault()
-    if (!search.trim()) {
-      return
-    }
-    filteredProducts = BakeryProducts.filter(product => product.name.includes(search))
-
-    setProductList(filteredProducts)
-    if (!filteredProducts) {
-      setProductList(BakeryProducts)
-    }
-  }
 
   return (
     <header className={styles.container}>
@@ -65,20 +54,18 @@ export default function Header({ setProductList }: HeaderProps) {
           <p>Siga o Forninho Dalilo no instagram! <a>@forninhodalilo</a></p>
         </div>
 
-        <form /* onSubmit={(e) => handleSearchProduct(e, search)} */>
-          <label className={styles.searchBox}>
-            <HiSearch size={25} />
-            <input
-              placeholder="Busca pelo cardápio..."
-              type="text"
-              name="research"
-              id="research"
-              onChange={(e) => setSearch(e.target.value)}
-              value={search}
-              required
-            />
-          </label>
-        </form>
+        <label className={styles.searchBox}>
+          <HiSearch size={25} />
+          <input
+            placeholder="Busca pelo cardápio..."
+            type="text"
+            name="research"
+            id="research"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            required
+          />
+        </label>
 
       </div>
 
