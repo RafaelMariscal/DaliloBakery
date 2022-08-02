@@ -23,7 +23,7 @@ export default function CartMenu() {
     document.addEventListener("click", handleCloseCart, true)
 
     setOrderNumber(34560 + Math.floor(Math.random() * 10))
-  }, [isSidebarOpen])
+  }, [])
 
   return (
     <aside className={`${styles.menuContainer} ${isSidebarOpen ? styles.cartMenuOpen : ''} `} ref={refOne} >

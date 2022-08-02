@@ -4,18 +4,21 @@
 
 
     [x] Design with Figma 
-    
+    [X] Create Routes schema ( Checkout [X] | Confirmation [X] | [X] NOT FOUND )
+        [X] Checkout
+        [x] Confirmation
+        [x] 404    
     [ ] Build Frontend with React + Sass
         [X] Home page frontend
         [ ] Checkout page frontend
         [ ] Order Confirmation page frontend
-    [X] Create Routes schema ( Checkout [X] | Confirmation [ ] )
+        [ ] Not Found page frontend
     [ ] Implement to the app all main functionalities
         [ ] Main Dashboard
             [X] Product filter Menu    
-            [ ] Shopping Cart Context
+            [X] Shopping Cart Context
+            [X] Product finder
             [ ] Backend Connection
-            [ ] Product finder
         [ ] Checkout Page
             [ ] Shopping cart review 
             [ ] Redirect to stirpe payment API page
