@@ -59,7 +59,7 @@ export function Home() {
           </div>
 
           <div className={styles.illustration}>
-            <img src="./Assets/FreelancerCatAndPlant.svg" alt="" />
+            <img src="../../Assets/FreelancerCatAndPlant.svg" alt="" />
           </div>
         </div>
 
