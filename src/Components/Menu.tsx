@@ -1,6 +1,7 @@
 import { GrInstagram } from "react-icons/gr"
 import { useState } from 'react'
 
+import LogoDalilo from "../Assets/LogoDalilo.svg";
 import styles from "./Menu.module.scss"
 import { Category } from "../Assets/bakery"
 
@@ -58,7 +59,7 @@ export default function Menu({ categoryFilter }: MenuProps) {
 
   return (
     <aside className={styles.menuContainer}>
-      <img src="../Assets/LogoDalilo.svg" alt="" />
+      <img src={LogoDalilo} alt="" />
       <nav>
         <ul>
           {menuList.map(item => {
