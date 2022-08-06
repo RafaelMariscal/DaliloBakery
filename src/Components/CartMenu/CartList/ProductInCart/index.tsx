@@ -1,5 +1,5 @@
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { FaTrashAlt } from "react-icons/Fa";
+import { FaTrashAlt } from "react-icons/fa";
 import { BakeryProducts } from "../../../../Assets/bakery";
 import { ICartItem, useCart } from "../../../../hooks/useCart";
 import styles from "./ProductInCart.module.scss";
