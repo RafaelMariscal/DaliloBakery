@@ -1,4 +1,5 @@
 import { BakeryProducts, BakeryProductType, Category } from "../../../src/Assets/bakery";
+import FreelancerCatAndPlant from "../../Assets/FreelancerCatAndPlant.svg";
 
 import CartMenu from "../../Components/CartMenu"
 import Header from "../../Components/Header"
@@ -59,7 +60,7 @@ export function Home() {
           </div>
 
           <div className={styles.illustration}>
-            <img src="/assets/FreelancerCatAndPlant.svg" alt="" />
+            <img src={FreelancerCatAndPlant} alt="" />
           </div>
         </div>
 

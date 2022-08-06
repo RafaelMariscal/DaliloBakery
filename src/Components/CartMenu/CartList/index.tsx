@@ -1,4 +1,5 @@
 import { useCart } from "../../../hooks/useCart"
+import EmptyPlace from "../../../Assets/EmptyPlace.svg";
 import styles from "./CartList.module.scss"
 import ProductInCart from "./ProductInCart"
 
@@ -38,7 +39,7 @@ function CartList({ isSidebarOpen }: CartListProps) {
           ) : (
             <div className={styles.emptyCart}>
               <h3>😔 Sem itens no carrinho...</h3>
-              <img src="/assets/EmptyPlace.svg" alt="" />
+              <img src={EmptyPlace} alt="" />
             </div>
           )
         }

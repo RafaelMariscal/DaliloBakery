@@ -1,9 +1,9 @@
 import { GrInstagram } from "react-icons/gr"
 import { useState } from 'react'
 
-import LogoDalilo from "../Assets/LogoDalilo.svg";
 import styles from "./Menu.module.scss"
 import { Category } from "../Assets/bakery"
+import LogoDalilo from "../Assets/LogoDalilo.svg";
 
 interface MenuType {
   menu: string
