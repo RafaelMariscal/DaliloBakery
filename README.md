@@ -2,6 +2,7 @@
 
 <h3>[🚧 Under Construction...]</h3>
 
+<h4>If you want to access the project's mockup, <a href="https://dalilobakery.netlify.app/">check it out here</a>.</h4>
 
     [x] Design with Figma 
     [X] Create Routes schema ( Checkout [X] | Confirmation [X] | [X] NOT FOUND )
