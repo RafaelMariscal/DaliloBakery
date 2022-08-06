@@ -58,7 +58,7 @@ export default function Menu({ categoryFilter }: MenuProps) {
 
   return (
     <aside className={styles.menuContainer}>
-      <img src="./assets/LogoDalilo.svg" alt="" />
+      <img src="/assets/LogoDalilo.svg" alt="" />
       <nav>
         <ul>
           {menuList.map(item => {
