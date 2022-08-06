@@ -14,7 +14,7 @@ export default function CartMenu() {
   const refOne = useRef<any>(null)
   useEffect(() => {
     const handleCloseCart = (event: Event) => {
-      if (!refOne.current.contains(event.target) && isSidebarOpen) {
+      if (!refOne.current.contains(event.target)) {
         setIsSidebarOpen(false)
       } else {
         return

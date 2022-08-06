@@ -28,9 +28,9 @@ export type ProviderProps = {
 
 const CartContext = createContext({} as ContextData)
 
-const PRODUCT_MAX_QUANTITY = 5
+const PRODUCT_MAX_QUANTITY = 6
 
-export const FEES = 6.95
+export const FEES = 6.95 //in percentage
 
 export function CartProvider({ children }: ProviderProps) {
   const [cart, setCart] = useState<ICartItem[]>([])

@@ -48,14 +48,18 @@ export function Home() {
                 <h2>😔 Nenhum produto encontrado...</h2>
               ) : (
                 productList.map(product =>
-                  <ProductCard product={product} productListOrder={productList.indexOf(product)} key={product.id} />
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    productListOrder={productList.indexOf(product)}
+                  />
                 )
               )
             }
           </div>
 
           <div className={styles.illustration}>
-            <img src="./Assets/FreelancerCatAndPlant.svg" alt="" />
+            <img src="./src/Assets/FreelancerCatAndPlant.svg" alt="" />
           </div>
         </div>
 

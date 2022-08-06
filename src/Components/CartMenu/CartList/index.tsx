@@ -38,7 +38,7 @@ function CartList({ isSidebarOpen }: CartListProps) {
           ) : (
             <div className={styles.emptyCart}>
               <h3>😔 Sem itens no carrinho...</h3>
-              <img src="./Assets/EmptyPlace.svg" alt="" />
+              <img src="./src/Assets/EmptyPlace.svg" alt="" />
             </div>
           )
         }
