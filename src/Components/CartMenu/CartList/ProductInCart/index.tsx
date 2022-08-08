@@ -1,5 +1,4 @@
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { FaTrashAlt } from "react-icons/fa";
+import { AiOutlineMinus, AiOutlinePlus, AiFillDelete, AiOutlineDelete } from "react-icons/ai";
 import { BakeryProducts } from "../../../../Assets/bakery";
 import { ICartItem, useCart } from "../../../../hooks/useCart";
 import styles from "./ProductInCart.module.scss";
@@ -38,7 +37,11 @@ function ProductInCart({ productId, quantity, totalPrice, unityPrice }: ICartIte
               {cartProduct?.name}
             </p>
             <div>
-              <span>R$ </span> <span>{unityPrice}</span>
+              <span>
+                {unityPrice.toLocaleString('pt-BR',
+                  { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }
+                )}
+              </span>
             </div>
           </div>
         </div>
@@ -60,7 +63,7 @@ function ProductInCart({ productId, quantity, totalPrice, unityPrice }: ICartIte
         </div>
 
         <div className={styles.removeProduct} onClick={handleRemoveFromCart}>
-          <FaTrashAlt size={16} />
+          <AiOutlineDelete size={20} />
         </div>
       </div>
     </div>

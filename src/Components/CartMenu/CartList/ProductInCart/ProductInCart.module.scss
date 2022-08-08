@@ -100,21 +100,15 @@
   }
 
   &:hover {
+
+    outline: 1px solid var(--brown-300);
+    outline-offset: 2px;
+
     .productDescription {
       >div {
         img {
           transform: scale(1.1);
         }
-      }
-
-      .productAmout {
-        outline: 1px solid var(--yellowish);
-        outline-offset: 2px;
-      }
-
-      .total {
-        outline: 1px solid var(--yellowish);
-        outline-offset: 2px;
       }
     }
   }
