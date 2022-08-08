@@ -1,3 +1,48 @@
-.title {
-  color: red;
+.container {
+  max-width: 1600px;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0 auto;
+  justify-content: space-between;
+  position: relative;
+  padding: 2rem 8rem 0;
+
+  img[alt="mountains"] {
+    position: absolute;
+    right: 8rem;
+    transform: rotate(8deg);
+  }
+
+  img[alt="komb"] {
+    position: absolute;
+    width: 75%;
+    bottom: 2rem;
+    left: 50%;
+    transform: translate(-50%) scaleX(-1);
+
+  }
+
+  .checkoutHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    >div {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+
+      img {
+        width: 4.25rem;
+      }
+
+      h1 {
+        line-height: 2rem
+      }
+    }
+  }
+
+  .title {
+    color: red;
+  }
 }

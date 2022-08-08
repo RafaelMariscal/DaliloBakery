@@ -2,6 +2,8 @@ import { useCart } from "../../../hooks/useCart"
 import EmptyPlace from "../../../Assets/EmptyPlace.svg";
 import styles from "./CartList.module.scss"
 import ProductInCart from "./ProductInCart"
+import { useCallback } from "react";
+import { Link } from "react-router-dom";
 
 interface CartListProps {
   isSidebarOpen: boolean
@@ -11,13 +13,14 @@ function CartList({ isSidebarOpen }: CartListProps) {
   const { cart, subTotal, totalOrder, resetCart } = useCart()
   const totalFees = totalOrder - subTotal
 
-  function handleResetCart() {
+
+  const handleResetCart = useCallback(() => {
     if (cart.length) {
       if (confirm("Você quer remover todos os produtos do carrinho?")) {
         resetCart()
       }
     }
-  }
+  }, [cart])
 
   return (
     <div className={`${isSidebarOpen ? styles.container : ''}`}>
@@ -82,8 +85,10 @@ function CartList({ isSidebarOpen }: CartListProps) {
         </table>
 
         <div className={styles.cartListActions}>
-          <button type="button" onClick={handleResetCart}>reset</button>
-          <button type="button">Continuar para pagamento</button>
+          <button type="button" onClick={() => handleResetCart()}>reset</button>
+          <button type="button">
+            <Link to={cart.length ? '/checkout' : ''}>Continuar para pagamento</Link>
+          </button>
         </div>
       </div>
     </div>

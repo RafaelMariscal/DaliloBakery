@@ -31,8 +31,8 @@ export default function CartMenu() {
         <div className={styles.header}>
           <a
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-            className={styles.cart}
             title={isSidebarOpen ? undefined : cart.length ? String(cart.length) : undefined}
+            className={`${styles.cart} ${!isSidebarOpen && styles.cartClosed}`}
           >
             <AiOutlineDoubleLeft size={15} className={styles.arrowLeft} />
             <AiOutlineShoppingCart size={25} className={styles.shopCart} />

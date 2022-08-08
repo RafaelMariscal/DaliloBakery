@@ -1,6 +1,6 @@
 function Confirmation() {
   return (
-    <h1>Confirmation</h1>
+    <h1>Checkout succeed</h1>
   )
 }
 
