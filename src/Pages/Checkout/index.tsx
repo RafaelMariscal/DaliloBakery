@@ -59,7 +59,7 @@ export function Checkout() {
 
           </div>
 
-          <Link to={'/'}>
+          <Link to={'/'} className={styles.linkToHome}>
             Return to Shop
             <AiFillShopping size={24} />
           </Link>
