@@ -9,6 +9,8 @@ import Mountains from "../../Assets/Mountains.svg"
 import styles from "./styles.module.scss"
 import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
+import CartList from '../../Components/CartMenu/CartList';
+
 
 export function Checkout() {
   const { cart } = useCart()
@@ -46,7 +48,6 @@ export function Checkout() {
       <img src={Komb} alt="komb" />
       <header className={styles.checkoutHeader}>
         <div>
-
           <div>
             <Link to={'/'}>
               <img src={LogoDalilo} alt="" />
@@ -90,10 +91,10 @@ export function Checkout() {
               <input type="text" name="neighborhood" placeholder="Bairro" />
               <input type="text" name="city" placeholder="Cidade" />
               <select name="UF" id="" placeholder="UF">
-                {UFSTATES.map(state => (
+                {UFSTATES.map((state, index) => (
                   <option
+                    key={state}
                     value={state}
-                    selected={state === 'CE' ? true : false}
                   >{state}
                   </option>
                 ))}
@@ -136,7 +137,13 @@ export function Checkout() {
         </form>
 
         <div className={styles.oderCard}>
-
+          <header>
+            <AiFillCompass size={20} />
+            <div>
+              <h2>Resumo do pedido</h2>
+            </div>
+          </header>
+          <CartList isSidebarOpen={true} />
         </div>
 
       </div>

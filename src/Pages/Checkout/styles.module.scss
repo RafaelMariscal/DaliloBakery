@@ -114,109 +114,128 @@
     max-width: 1600px;
     padding: 2rem 8rem 0;
     margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+    flex-wrap: wrap;
 
-    .topCard,
-    .bottomCard {
-      background-color: var(--brown-300);
-      color: var(--background);
-      max-width: 640px;
-      margin-bottom: 1rem;
-      padding: 1.5rem 2.5rem 2.5rem;
-      border-radius: .75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+    .checkoutForm {
+      flex: 1;
 
-    .topCard {
-
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+      .topCard,
+      .bottomCard {
+        background-color: var(--brown-300);
+        color: var(--background);
+        margin-bottom: 1rem;
+        padding: 1.5rem 2.5rem 2.5rem;
+        border-radius: .75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
       }
 
-      /* Firefox */
-      input[type=number] {
-        -moz-appearance: textfield;
+      .topCard {
+
+        input,
+        select {
+          background-color: var(--background);
+          padding: .75rem;
+          border: 0;
+          border-radius: .25rem;
+        }
+
+        select {
+          cursor: pointer;
+        }
+
+        >div {
+          display: flex;
+          gap: 1rem;
+
+          &:nth-child(4) input:last-child {
+            flex: 2;
+          }
+
+          &:nth-child(5) input:nth-of-type(1) {
+            max-width: 200px;
+          }
+
+          &:nth-child(5) input:nth-of-type(2) {
+            flex: 1;
+          }
+
+          &:nth-child(5) input:nth-of-type(3) {
+            max-width: 3.75rem;
+          }
+
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          input[type=number] {
+            -moz-appearance: textfield;
+          }
+        }
+
       }
 
-      input,
-      select {
-        background-color: var(--background);
-        padding: .75rem;
-        border: 0;
-        border-radius: .25rem;
-      }
-
-      select {
-        cursor: pointer;
-      }
-
-      >div {
+      .checkboxContainer {
         display: flex;
         gap: 1rem;
 
-        &:nth-child(4) input:last-child {
-          flex: 2;
-        }
-
-        &:nth-child(5) input:nth-of-type(1) {
-          max-width: 200px;
-        }
-
-        &:nth-child(5) input:nth-of-type(2) {
+        label {
+          cursor: pointer;
+          background-color: var(--yellowish);
+          color: var(--brown-300);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: .75rem;
           flex: 1;
+          font-size: .75rem;
+          height: 3.125rem;
+          border: 2px solid transparent;
+          border-radius: .25rem;
+          font-weight: bold;
+
+          &:hover {
+            outline: 2px solid var(--yellowish);
+            outline-offset: 2px;
+            filter: brightness(0.95);
+          }
         }
 
-        &:nth-child(5) input:nth-of-type(3) {
-          max-width: 3.75rem;
-        }
-      }
-
-    }
-
-    .checkboxContainer {
-      display: flex;
-      gap: 1rem;
-
-      label {
-        cursor: pointer;
-        background-color: var(--yellowish);
-        color: var(--brown-300);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: .75rem;
-        flex: 1;
-        font-size: .75rem;
-        height: 3.125rem;
-        border: 2px solid transparent;
-        border-radius: .25rem;
-        font-weight: bold;
-
-        &:hover {
+        .checked {
+          font-weight: bold;
+          background-color: var(--brown-300);
+          color: var(--yellowish);
           outline: 2px solid var(--yellowish);
-          outline-offset: 2px;
-          filter: brightness(0.95);
+          box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.25);
         }
-      }
 
-      .checked {
-        font-weight: bold;
-        background-color: var(--brown-300);
-        color: var(--yellowish);
-        outline: 2px solid var(--yellowish);
-        box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.25);
-      }
+        input {
+          position: absolute;
+          opacity: 0;
+        }
 
-      input {
-        position: absolute;
-        opacity: 0;
       }
-
     }
 
+
+    .oderCard {
+      flex: 1;
+      background-color: var(--brown-300);
+      padding: 1rem 2rem 3rem;
+      margin-bottom: 1rem;
+      border-radius: .75rem;
+      min-width: 400px;
+
+      header {
+        margin-bottom: .5rem;
+      }
+    }
   }
 }
 
