@@ -89,7 +89,7 @@ function CartList({ isSidebarOpen, isCheckoutPage = false }: CartListProps) {
           <button type="button" onClick={() => handleResetCart()}>reset</button>
           <button type="button">
             <Link
-              to={isCheckoutPage ? '/succeed' : cart.length ? '/checkout' : ''}
+              to={cart.length ? isCheckoutPage ? '/succeed' : '/checkout' : '/'}
             >
               Continuar para pagamento
             </Link>

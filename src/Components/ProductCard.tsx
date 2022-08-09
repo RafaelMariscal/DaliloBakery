@@ -59,7 +59,7 @@ function ProductCard({ product, productListOrder }: ProductCardProps) {
   }
 
   return (
-    <div className={`${styles.card} ${'--item' + productListOrder}`} key={product.id}>
+    <div className={`${styles.card}`} key={product.id}>
       <img src={product.image} alt="" />
 
       <div className={styles.cardBackground}>

@@ -1,4 +1,4 @@
-import { useMemo, useState, useContext, createContext, ReactNode } from 'react'
+import { useMemo, useState, useContext, createContext, ReactNode, useEffect } from 'react'
 import { BakeryProducts } from '../../src/Assets/bakery'
 
 export type ICartItem = {
@@ -11,6 +11,7 @@ export type ICartItem = {
 
 type ContextData = {
   cart: ICartItem[]
+  orderNumber: number
   subTotal: number
   totalFees: number
   totalOrder: number
@@ -34,6 +35,16 @@ export const FEES = 6.95 //in percentage
 
 export function CartProvider({ children }: ProviderProps) {
   const [cart, setCart] = useState<ICartItem[]>([])
+  const [isFirstRender, setIsFirstRender] = useState(true)
+  const [orderNumber, setOrderNumber] = useState(32513)
+
+  useEffect(() => {
+    if (!isFirstRender) {
+      return
+    }
+    setOrderNumber(prev => prev + Math.floor(Math.random() * 10))
+    setIsFirstRender(false)
+  }, [])
 
   function checkHasProductInCart(id: string) {
     const product = cart.find((item) => item.productId === id)
@@ -113,6 +124,7 @@ export function CartProvider({ children }: ProviderProps) {
     setCart([])
   }
 
+
   const subTotal = useMemo(() => {
     const value = cart.reduce((acc, curr) => {
       const temp = acc + curr.totalPrice
@@ -130,6 +142,7 @@ export function CartProvider({ children }: ProviderProps) {
     <CartContext.Provider
       value={{
         cart,
+        orderNumber,
         subTotal,
         totalFees,
         totalOrder,

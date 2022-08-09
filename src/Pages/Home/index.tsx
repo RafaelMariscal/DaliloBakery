@@ -7,27 +7,30 @@ import Menu from "../../Components/Menu"
 import ProductCard from "../../Components/ProductCard"
 import { GiSlicedBread } from "react-icons/gi";
 import styles from "./Home.module.scss"
-import { useState } from "react";
-
+import { useCallback, useState } from "react";
 
 export function Home() {
   const [productList, setProductList] = useState(BakeryProducts)
 
-  function handleProductsCategory(categories: Category[]) {
+  const handleProductsCategory = useCallback(async (categories: Category[]) => {
     const filteredProductList: BakeryProductType[] = []
     if (categories.includes('all')) {
       return setProductList(BakeryProducts)
     }
     categories.map(category => {
       BakeryProducts.map(product => {
-        product.categories
         if (product.categories.includes(category)) {
           filteredProductList.push(product)
         }
       })
     })
+    await clearProducts()
     return setProductList(filteredProductList)
-  }
+  }, [])
+
+  const clearProducts = useCallback(async () => {
+    return setProductList([])
+  }, [])
 
   return (
     <div className={styles.container}>

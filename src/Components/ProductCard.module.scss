@@ -5,7 +5,7 @@
   border-radius: 0 0 8px 30px;
   text-align: center;
   animation: name duration timing-function delay iteration-count direction fill-mode;
-  animation: apear 250ms;
+  animation: apear 500ms;
 
   @keyframes apear {
     0% {
@@ -16,7 +16,6 @@
       transform: translateY(0rem);
     }
   }
-
 
   img {
     width: 200px;

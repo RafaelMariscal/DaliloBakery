@@ -7,9 +7,8 @@ import { useCart } from '../../hooks/useCart';
 
 export default function CartMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const [orderNumber, setOrderNumber] = useState(0)
 
-  const { cart } = useCart()
+  const { cart, orderNumber } = useCart()
 
   const refOne = useRef<any>(null)
   useEffect(() => {
@@ -21,8 +20,6 @@ export default function CartMenu() {
       }
     }
     document.addEventListener("click", handleCloseCart, true)
-
-    setOrderNumber(34560 + Math.floor(Math.random() * 10))
   }, [])
 
   return (

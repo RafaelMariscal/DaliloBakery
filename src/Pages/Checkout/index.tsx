@@ -17,6 +17,8 @@ const UFSTATES = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
 ]
 
 export function Checkout() {
+  const { orderNumber } = useCart()
+
   const [paymentTypes, setPaymentTypes] = useState([
     { method: "credit", label: "CARTÃO DE CRÉDITO", selected: false },
     { method: "debit", label: "CARTÃO DE DÉBITO", selected: false },
@@ -131,7 +133,7 @@ export function Checkout() {
           <header>
             <AiFillCompass size={20} />
             <div>
-              <h2>Resumo do pedido</h2>
+              <h2>Resumo do pedido #{orderNumber}</h2>
             </div>
           </header>
           <CartList isSidebarOpen={true} isCheckoutPage />
