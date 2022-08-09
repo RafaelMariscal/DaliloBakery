@@ -30,7 +30,7 @@ export function Checkout() {
     setPaymentTypes(newPaymentTypes)
   }, [paymentTypes])
 
-  const states = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
+  const UFSTATES = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
     'MS', 'MT', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO',
     'RR', 'SC', 'SP', 'SE', 'TO'
   ]
@@ -89,7 +89,15 @@ export function Checkout() {
             <div>
               <input type="text" name="neighborhood" placeholder="Bairro" />
               <input type="text" name="city" placeholder="Cidade" />
-              <input type="text" name="state" placeholder="UF" maxLength={2} style={{ textTransform: "uppercase" }} />
+              <select name="UF" id="" placeholder="UF">
+                {UFSTATES.map(state => (
+                  <option
+                    value={state}
+                    selected={state === 'CE' ? true : false}
+                  >{state}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <div className={styles.bottomCard}>
@@ -102,25 +110,25 @@ export function Checkout() {
             </header>
 
             <div className={styles.checkboxContainer}>
-              {
-                paymentTypes.map(type => (
-                  <label
-                    key={type.method}
-                    htmlFor={type.method}
-                    className={`${type.selected ? styles.checked : ''}`}
-                  >
-                    <input
-                      type="radio"
-                      name="payment"
-                      id={type.method}
-                      value={type.method}
-                      onClick={() => handlePaymentSelector(type.method)}
-                    />
-                    <BsBank2 />
-                    {type.label}
-                  </label>
-                ))
-              }
+              {paymentTypes.map(type => (
+                <label
+                  key={type.method}
+                  htmlFor={type.method}
+                  className={`${type.selected ? styles.checked : ''}`}
+                >
+                  <input
+                    type="radio"
+                    name="payment"
+                    id={type.method}
+                    value={type.method}
+                    onClick={() => handlePaymentSelector(type.method)}
+                  />
+                  {type.method === 'credit' && (<BsCreditCard2Back />)}
+                  {type.method === 'debit' && (<BsBank2 />)}
+                  {type.method === 'cash' && (<BsCashStack />)}
+                  {type.label}
+                </label>
+              ))}
             </div>
 
           </div>
