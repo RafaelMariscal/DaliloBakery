@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 
 interface CartListProps {
   isSidebarOpen: boolean
+  isCheckoutPage?: boolean
 }
 
-function CartList({ isSidebarOpen }: CartListProps) {
+function CartList({ isSidebarOpen, isCheckoutPage = false }: CartListProps) {
   const { cart, subTotal, totalOrder, resetCart } = useCart()
   const totalFees = totalOrder - subTotal
 
@@ -87,7 +88,11 @@ function CartList({ isSidebarOpen }: CartListProps) {
         <div className={styles.cartListActions}>
           <button type="button" onClick={() => handleResetCart()}>reset</button>
           <button type="button">
-            <Link to={cart.length ? '/checkout' : ''}>Continuar para pagamento</Link>
+            <Link
+              to={isCheckoutPage ? '/succeed' : cart.length ? '/checkout' : ''}
+            >
+              Continuar para pagamento
+            </Link>
           </button>
         </div>
       </div>

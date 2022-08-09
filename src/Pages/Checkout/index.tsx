@@ -11,9 +11,12 @@ import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import CartList from '../../Components/CartMenu/CartList';
 
+const UFSTATES = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
+  'MS', 'MT', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO',
+  'RR', 'SC', 'SP', 'SE', 'TO'
+]
 
 export function Checkout() {
-  const { cart } = useCart()
   const [paymentTypes, setPaymentTypes] = useState([
     { method: "credit", label: "CARTÃO DE CRÉDITO", selected: false },
     { method: "debit", label: "CARTÃO DE DÉBITO", selected: false },
@@ -31,16 +34,6 @@ export function Checkout() {
     })
     setPaymentTypes(newPaymentTypes)
   }, [paymentTypes])
-
-  const UFSTATES = ['AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA',
-    'MS', 'MT', 'MG', 'PA', 'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO',
-    'RR', 'SC', 'SP', 'SE', 'TO'
-  ]
-  const ProductsInCart: BakeryProductType[] = []
-  cart.map(cartProduct => {
-    const productToBeListed = BakeryProducts.find(stockProduct => stockProduct.id === cartProduct.productId)
-    return productToBeListed && ProductsInCart.push(productToBeListed)
-  })
 
   return (
     <div className={styles.container}>
@@ -131,9 +124,7 @@ export function Checkout() {
                 </label>
               ))}
             </div>
-
           </div>
-
         </form>
 
         <div className={styles.oderCard}>
@@ -143,20 +134,9 @@ export function Checkout() {
               <h2>Resumo do pedido</h2>
             </div>
           </header>
-          <CartList isSidebarOpen={true} />
+          <CartList isSidebarOpen={true} isCheckoutPage />
         </div>
-
       </div>
-
-      {/* <ul>
-        {
-          ProductsInCart.map(product => {
-            return (
-              <h2>{product.name}</h2>
-            )
-          })
-        }
-      </ul> */}
     </div>
 
   )
