@@ -1,0 +1,100 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  .checkoutHeader {
+    background-color: var(--brown-300);
+    display: block;
+    color: var(--background);
+    width: 100%;
+
+    >div {
+      max-width: 1400px;
+
+      a {
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          filter: brightness(1);
+        }
+      }
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+
+      padding: 1rem 8rem;
+      margin: 0 auto;
+
+      >div {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+
+        img {
+          width: 4.25rem;
+        }
+
+        h1 {
+          line-height: 2rem
+        }
+      }
+    }
+
+    a {
+      display: flex;
+      gap: 1rem;
+      font-weight: normal;
+    }
+
+    .linkToHome {
+      padding: .5rem 1rem;
+      border-radius: .25rem;
+      transition: background-color 100ms;
+
+      svg {
+        color: var(--yellowish)
+      }
+
+      &:hover {
+        background-color: var(--yellowish);
+        color: var(--brown-300);
+        font-weight: bold;
+
+        svg {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  >a {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    margin-top: 5rem;
+
+    a {
+      background-color: var(--yellowish);
+      width: 350px;
+      padding: .75rem 2rem;
+      margin-top: 2rem;
+      text-align: center;
+      border-radius: .5rem;
+      font-weight: bold;
+      transition: background 100ms;
+      box-shadow: 0 1px 4px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    &:hover {
+      a {
+        background-color: var(--brown-300);
+        color: var(--yellowish);
+        outline: 2px solid var(--yellowish);
+        outline-offset: -3px;
+      }
+    }
+  }
+}
