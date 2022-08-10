@@ -11,9 +11,9 @@
         [x] 404    
     [ ] Build Frontend with React + Sass
         [X] Home page frontend
-        [ ] Checkout page frontend
+        [X] Checkout page frontend
+        [X] Not Found page frontend
         [ ] Order Confirmation page frontend
-        [ ] Not Found page frontend
     [ ] Implement to the app all main functionalities
         [ ] Main Dashboard
             [X] Product filter Menu    
@@ -21,19 +21,14 @@
             [X] Product finder
             [ ] Backend Connection
         [ ] Checkout Page
-            [ ] Shopping cart review 
+            [X] Shopping cart review 
             [ ] Redirect to stirpe payment API page
             [ ] Redirect to Order Confirmation Page
     [ ] Implement a responsive design
 
 <h3>Here some Screenshots and GIFs of how this project is going...</h3>
 
-<img src="./Public/Assets/screenshot1.jpg" width="99%" />
-
-<p> 
-    <img src="./Public/Assets/screenshot2.jpg" width="49%"/>
-    <img src="https://media.giphy.com/media/3tSfRdSMNn7o6PncWV/giphy.gif" width="49%" />
-</p>
+<img src="./Public/Assets/screenshots.png" width="99%" />
 
 <h2 id="GettingStarted">GettingStarted</h2> 
 
