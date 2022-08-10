@@ -47,19 +47,17 @@ export function Home() {
 
         <div>
           <div className={styles.products}>
-            {
-              productList.length === 0 ? (
-                <h2>😔 Nenhum produto encontrado...</h2>
-              ) : (
-                productList.map(product =>
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    productListOrder={productList.indexOf(product)}
-                  />
-                )
+            {productList.length === 0 ? (
+              <h2>😔 Nenhum produto encontrado...</h2>
+            ) : (
+              productList.map(product =>
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  productListOrder={productList.indexOf(product)}
+                />
               )
-            }
+            )}
           </div>
 
           <div className={styles.illustration}>

@@ -1,5 +1,5 @@
 import { GrInstagram } from "react-icons/gr"
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 import styles from "./Menu.module.scss"
 import { Category } from "../Assets/bakery"
@@ -14,48 +14,47 @@ interface MenuProps {
   categoryFilter: (categories: Category[]) => void
 }
 
+const menuList: MenuType[] = [
+  {
+    menu: "Home",
+    category: ["all"]
+  },
+  {
+    menu: "Pães Salgados",
+    category: ["salty"]
+  },
+  {
+    menu: "Pães Doces",
+    category: ["sweet"]
+  },
+  {
+    menu: "Dalilinhos Delícia",
+    category: ["tiny"]
+  },
+  {
+    menu: "Dalilo Vengano",
+    category: ["vegan"]
+  },
+  {
+    menu: "Dalilo Lacfree",
+    category: ["lacfree"]
+  },
+]
 export default function Menu({ categoryFilter }: MenuProps) {
   const [menuActive, setMenuActive] = useState('Home')
 
-  const menuList: MenuType[] = [
-    {
-      menu: "Home",
-      category: ["all"]
-    },
-    {
-      menu: "Pães Salgados",
-      category: ["salty"]
-    },
-    {
-      menu: "Pães Doces",
-      category: ["sweet"]
-    },
-    {
-      menu: "Dalilinhos Delícia",
-      category: ["tiny"]
-    },
-    {
-      menu: "Dalilo Vengano",
-      category: ["vegan"]
-    },
-    {
-      menu: "Dalilo Lacfree",
-      category: ["lacfree"]
-    },
-  ]
-
-  function handleMenu(event: any) {
+  const handleMenu = useCallback((event: any) => {
     const menuNameSelected = String(event.target.innerHTML).replace('<br>', ' ')
+    console.log(menuNameSelected)
     if (menuNameSelected !== menuActive) {
       setMenuActive(menuNameSelected)
     }
-    const menuSelected = menuList.find(menu => menu.menu == menuNameSelected)
-    console.log(menuSelected?.category)
+    const menuSelected = menuList.find(menu => menu.menu === menuNameSelected)
     if (menuSelected) {
       return categoryFilter(menuSelected?.category)
     }
     return
-  }
+  }, [menuActive])
 
   return (
     <aside className={styles.menuContainer}>

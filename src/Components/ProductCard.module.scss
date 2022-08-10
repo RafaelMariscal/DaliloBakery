@@ -1,7 +1,7 @@
 .card {
   position: relative;
-  width: 250px;
-  height: 400px;
+  width: 15.625rem;
+  height: 25rem;
   border-radius: 0 0 8px 30px;
   text-align: center;
   animation: name duration timing-function delay iteration-count direction fill-mode;
@@ -18,8 +18,8 @@
   }
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 12.5rem;
+    height: 12.5rem;
     border-radius: 3rem 4rem 2rem 4rem;
     object-fit: cover;
     object-position: center;
@@ -57,7 +57,7 @@
   .cardBackground {
     position: absolute;
     bottom: 0;
-    height: 335px;
+    height: 20.9375rem;
     z-index: 0;
     background-color: var(--brown-400);
     border-radius: 8px 30px 8px 30px;

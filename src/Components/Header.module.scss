@@ -59,8 +59,38 @@
       >svg {
         position: absolute;
         left: .5rem;
-        top: 25%;
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
   }
+}
+
+@media screen and (max-width: 1020px) {
+  .container {
+    .headerTop {
+      flex: 1;
+      align-self: flex-start;
+
+      div {
+        display: none;
+      }
+    }
+
+    .headerBottom {
+      width: 26.5rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      .searchBox {
+        display: flex;
+        flex: 1;
+
+        input {
+          flex: 1;
+        }
+      }
+    }
+  }
+
 }

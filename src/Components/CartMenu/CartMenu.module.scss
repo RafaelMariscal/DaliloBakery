@@ -156,3 +156,19 @@
     }
   }
 }
+
+@media screen and (max-width: 1020px) {
+  .menuContainer {
+    >div {
+      height: 6rem;
+      background-color: transparent;
+    }
+  }
+
+  .cartMenuOpen {
+    >div {
+      background-color: var(--brown-300);
+      height: 100vh;
+    }
+  }
+}
