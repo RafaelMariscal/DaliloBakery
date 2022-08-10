@@ -94,3 +94,41 @@
   }
 
 }
+
+@media screen and (max-width: 540px) {
+  .container {
+    .headerTop {
+      flex: 1;
+      align-self: flex-start;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      div {
+        display: none;
+      }
+    }
+
+    .headerBottom {
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 2rem;
+
+      p {
+        &:first-of-type {
+          display: none;
+        }
+      }
+
+      .searchBox {
+        display: flex;
+        flex: 1;
+
+        input {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

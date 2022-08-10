@@ -3,6 +3,7 @@
   color: var(--white);
   margin: .625rem;
   border-radius: 1rem;
+  width: max-content;
 
   .productDescription {
     padding: 1rem .625rem;
@@ -78,7 +79,8 @@
       color: var(--brown-300);
       height: 3.25rem;
       border-radius: 8px;
-      min-width: 5rem;
+      max-width: max-content;
+      padding: 0 1rem;
       display: flex;
       justify-content: center;
       align-items: center;

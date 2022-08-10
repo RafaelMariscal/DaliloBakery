@@ -75,3 +75,15 @@ a {
     font-size: .95rem;
   }
 }
+
+@media screen and (max-width: 680px) {
+  html {
+    font-size: .85rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  html {
+    font-size: 1rem;
+  }
+}
