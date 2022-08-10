@@ -88,6 +88,10 @@
     &>*:not(:first-child) {
       display: none;
     }
+
+    .orderType {
+      transition: all 150ms;
+    }
   }
 }
 

@@ -1,13 +1,13 @@
 import { AiOutlineShoppingCart, AiOutlineDoubleLeft, AiOutlineDoubleRight } from 'react-icons/ai'
 import styles from "./CartMenu.module.scss"
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import CartList from './CartList';
 import { useCart } from '../../hooks/useCart';
 
 export default function CartMenu() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-
+  const [orderType, setOrderType] = useState('delivery')
   const { cart, orderNumber } = useCart()
 
   const refOne = useRef<any>(null)
@@ -20,6 +20,10 @@ export default function CartMenu() {
       }
     }
     document.addEventListener("click", handleCloseCart, true)
+  }, [])
+
+  const handleOrderType = useCallback((order: string) => {
+    setOrderType(order)
   }, [])
 
   return (
@@ -40,8 +44,17 @@ export default function CartMenu() {
         </div>
 
         <div className={styles.orderType}>
-          <span className={styles.orderTypeSelected}>delivery</span>
-          <span >to go</span>
+          <span
+            className={orderType === 'delivery' ? styles.orderTypeSelected : ''}
+            onClick={() => handleOrderType('delivery')}
+          >
+            delivery
+          </span>
+          <span
+            className={orderType === 'togo' ? styles.orderTypeSelected : ''}
+            onClick={() => handleOrderType('togo')}
+          >
+            to go</span>
         </div>
 
         <CartList isSidebarOpen={isSidebarOpen} />
