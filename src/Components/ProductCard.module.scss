@@ -84,45 +84,29 @@
       justify-content: space-between;
       gap: .5rem;
 
-
-      .actions {
-        background-color: var(--background);
-        width: 5rem;
-        justify-content: center;
-        color: var(--brown-300);
-        height: 100%;
-        padding: 0 .5rem;
-        line-height: 1rem;
-        border-radius: 6px;
-        display: flex;
-        align-items: center;
-        gap: .5rem;
-
-        .icons {
-          cursor: pointer;
-          border: none;
-          background-color: transparent;
-          display: flex;
-          outline: none;
-
-          &:hover {
-            color: var(--yellowish);
-          }
-        }
+      >span {
+        font-size: 1.125rem;
+        text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
       }
 
       .cart {
         cursor: pointer;
         height: 100%;
-        width: 30px;
+        padding: .125rem .75rem;
         background-color: var(--brown-500);
-        color: var(--white);
+        color: var(--brown-300);
+        font-weight: bold;
         border: 1px solid transparent;
         border-radius: 6px;
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: .5rem;
         transition: background 150ms;
+
+        svg {
+          transform: translateY(-.1rem);
+        }
 
         &:hover {
           background-color: var(--brown-300);
@@ -164,150 +148,45 @@
 
 @media screen and (max-width: 540px) {
   .card {
-    width: 80vw;
-    height: 28rem;
+    width: 17.625rem;
+    height: 27.25rem;
 
     img {
-      width: 15rem;
-      height: 15rem;
-      border-radius: 3rem 4rem 2rem 4rem;
-      object-fit: cover;
-      object-position: center;
-      box-shadow: 1px 4px 4px rgba($color: #000000, $alpha: .25);
-      border: 1px solid var(--brown-300);
-
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1;
-
-      transition: width 150ms, height 150ms;
+      width: 13.75rem;
+      height: 13.75rem;
     }
 
     &:hover {
       img {
-        width: 15.5rem;
-        height: 15.5rem;
-      }
-
-      .cardBackground {
-        .cart {
-          background-color: var(--yellowish);
-          color: var(--brown-300);
-        }
-
-        .cardFooter {
-          background-color: var(--yellowish);
-          color: var(--brown-300);
-        }
+        width: 14.25rem;
+        height: 14.25rem;
       }
     }
 
     .cardBackground {
-      position: absolute;
-      bottom: 0;
-      height: 20.9375rem;
-      z-index: 0;
-      background-color: var(--brown-400);
-      border-radius: 8px 30px 8px 30px;
-      box-shadow: 1px 4px 8px rgba($color: #000000, $alpha: .65);
-
-      color: var(--white);
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-end;
 
       h3 {
-        font-size: 1.25rem;
-        line-height: 1.25rem;
-        margin-bottom: .5rem;
+        font-size: 1.125rem;
+        line-height: 1.125rem;
+        padding: 0 1rem
       }
 
       >div {
-        width: 100%;
-        padding: 0 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: .5rem;
+        justify-content: space-around;
 
-
-        .actions {
-          background-color: var(--background);
-          width: 5rem;
-          justify-content: center;
-          color: var(--brown-300);
-          height: 100%;
-          padding: 0 .5rem;
-          line-height: 1rem;
-          border-radius: 6px;
-          display: flex;
-          align-items: center;
-          gap: .5rem;
-
-          .icons {
-            cursor: pointer;
-            border: none;
-            background-color: transparent;
-            display: flex;
-            outline: none;
-
-            &:hover {
-              color: var(--yellowish);
-            }
-          }
+        >span {
+          font-size: 1.25rem;
+          line-height: 1.25rem;
+          text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
         }
 
         .cart {
-          cursor: pointer;
-          height: 100%;
-          width: 30px;
-          background-color: var(--brown-500);
-          color: var(--white);
-          border: 1px solid transparent;
-          border-radius: 6px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          transition: background 150ms;
+          margin: .25rem 0;
 
-          &:hover {
-            background-color: var(--brown-300);
-            border: 1px solid var(--brown-500);
-            color: var(--yellowish);
+          svg {
+            transform: translateY(-.1rem);
           }
         }
-      }
-
-      p {
-        text-align: justify;
-        font-size: .75rem;
-        line-height: 1.15rem;
-        padding: .5rem 1.25rem;
-        height: 5rem;
-        margin-bottom: .5rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 4;
-        /* number of lines to show */
-        -webkit-box-orient: vertical;
-      }
-
-      .cardFooter {
-        background-color: var(--brown-300);
-        width: 100%;
-        border-radius: 0 0 8px 30px;
-
-        display: flex;
-        justify-content: center;
-        font-size: .75rem;
-        line-height: .75rem;
-        padding: .625rem 0;
-        transition: background 150ms;
       }
     }
   }

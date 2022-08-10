@@ -162,9 +162,27 @@
     right: 0px;
 
     >div {
-      height: 6rem;
-      background-color: transparent;
+      height: 3rem;
+
+      .header {
+        display: flex;
+        padding-left: 1rem;
+
+        .cart {
+          margin-top: 1.25rem;
+        }
+
+        .cart[title] {
+          &::after {
+            top: 1.5rem;
+          }
+        }
+      }
     }
+  }
+
+  .cartClosed {
+    padding-top: 1rem !important;
   }
 
   .cartMenuOpen {
@@ -175,12 +193,23 @@
   }
 }
 
+@media screen and (max-width: 680px) {
+  .menuContainer {
+    >div {
+      .header {
+        .cart {
+          margin-top: .25rem;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 540px) {
-
-
   .cartMenuOpen {
     >div {
       width: 100vw;
+
     }
   }
 }

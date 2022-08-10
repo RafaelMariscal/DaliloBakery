@@ -100,6 +100,12 @@
       >div {
         display: flex;
 
+        .illustration {
+          img {
+            right: 2rem;
+          }
+        }
+
         .products {
           justify-content: space-evenly;
         }
@@ -117,6 +123,7 @@
 
           img {
             width: 30rem;
+            opacity: .25;
           }
         }
       }
@@ -136,7 +143,11 @@
 
         .illustration {
           img {
-            display: none;
+            display: block;
+            bottom: 0;
+            right: 50%;
+            transform: translate(50%);
+            width: 70vw;
           }
         }
       }
